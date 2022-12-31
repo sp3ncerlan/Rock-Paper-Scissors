@@ -15,10 +15,9 @@
         }
 
         function playRound (playerSelection, computerSelection) {
-            
 
-            playerSelection = String(prompt("Choose a strategy!")).toLowerCase();
-            computerSelection = String(computerSelection).toLowerCase();
+            playerSelection = playerSelection.toLowerCase();
+            computerSelection = computerSelection.toLowerCase();
 
             if (playerSelection == ("rock") && computerSelection == ("paper")) {
                 return "You Lose! Paper beats Rock";
@@ -32,15 +31,36 @@
                 return "You Lose! Rock beats Scissors";
             } else if (playerSelection == ("scissors") && computerSelection == ("paper")) {
                 return "You Win! Scissors beats Paper";
-            } else {
+            } else if (playerSelection == computerSelection) {
                 return "It's a tie!"
             }
         }
 
         function game() {
 
+            let yourPoints = 0;
+            let opponentPoints = 0;
+
             for (let i = 0; i < 5; i++) {
-                return playRound();
+
+                let choice = prompt("Choose your fighter!");
+                let track = playRound(choice, getComputerChoice());
+
+                console.log(track);
+
+                if (track.includes("Win")) {
+                    yourPoints++
+                } else if (track.includes("Lose")) {
+                    opponentPoints++;
+                }
+            }
+
+            if (yourPoints == opponentPoints) {
+                return "Best out of five: You tied!";
+            } else if (yourPoints > opponentPoints) {
+                return "Best out of five: You Win";
+            } else {
+                return "Best out of five: You Lose!";
             }
         }
 
