@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function getComputerChoice() {
+            const choices = ['Rock', 'Paper', 'Scissors'];
+            return choices[Math.floor(Math.random() * 3)];
+        }
+
+        function playRound (playerSelection, computerSelection) {
+            
+
+            playerSelection = String(prompt("Choose a strategy!")).toLowerCase();
+            computerSelection = String(computerSelection).toLowerCase();
+
+            if (playerSelection == ("rock") && computerSelection == ("paper")) {
+                return "You Lose! Paper beats Rock";
+            } else if (playerSelection == ("rock") && computerSelection == ("scissors")) {
+                return "You Win! Rock beats Scissors";
+            } else if (playerSelection == ("paper") && computerSelection == ("rock")) {
+                return "You Win! Paper beats Rock";
+            } else if (playerSelection == ("paper") && computerSelection == ("scissors")) {
+                return "You Lose! Scissors beats Paper";
+            } else if (playerSelection == ("scissors") && computerSelection == ("rock")) {
+                return "You Lose! Rock beats Scissors";
+            } else if (playerSelection == ("scissors") && computerSelection == ("paper")) {
+                return "You Win! Scissors beats Paper";
+            } else {
+                return "It's a tie!"
+            }
+        }
+
+        function game() {
+
+            for (let i = 0; i < 5; i++) {
+                return playRound();
+            }
+        }
+
+        console.log(game())
+
+    </script>  
+</body>
+</html>
