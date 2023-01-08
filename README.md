@@ -1,2 +1,3 @@
-# Rock-Paper-Scissors
+# rock-paper-scissors
+
 TOP RPS Game Project
